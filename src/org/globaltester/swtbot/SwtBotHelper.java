@@ -1,7 +1,12 @@
 package org.globaltester.swtbot;
 
+import java.util.List;
+
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 
 /**
  * Convenience class that provides several wrapper methods to simplify usage of
@@ -14,12 +19,49 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 public class SwtBotHelper {
 
 	public static void resetWorkbenchState(SWTWorkbenchBot bot) {
-
-		// close welcome view
-		SWTBotView welcomeView = bot.viewByTitle("Welcome");
-		if (welcomeView != null) {
-			welcomeView.close();
+		List<SWTBotView> views =  bot.views();
+		// close all open views to get rid of all unwanted views
+		for (SWTBotView view : views){
+			view.close();
 		}
+		bot.resetWorkbench();
+	}
+	
+	public static void selectInTree(SWTBotTree tree, String category, int index){
+		for (SWTBotTreeItem item : tree.getAllItems()){
+			if (item.getText().equals(category)){
+				item.expand();
+				item.getItems()[index].select();
+				break;
+			}
+		}
+	}
 
+	public static void selectInTree(SWTBotTree tree, String category, String itemName){
+		for (SWTBotTreeItem item : tree.getAllItems()){
+			if (item.getText().equals(category)){
+				item.expand();
+				for (SWTBotTreeItem subItem : item.getItems()){
+					if (subItem.getText().equals(itemName)){
+						subItem.select();
+						break;
+					}
+				}
+			}
+		}
+	}
+	
+	/**
+	 * Slow down the speed of the SWTBot execution. Use only for development!
+	 */
+	public static void slowdown(){
+		SWTBotPreferences.PLAYBACK_DELAY = 200;
+	}
+
+	/**
+	 * Restore normal SWTBot execution speed. Use only for development!
+	 */
+	public static void resetSpeed(){
+		SWTBotPreferences.PLAYBACK_DELAY = 0;
 	}
 }

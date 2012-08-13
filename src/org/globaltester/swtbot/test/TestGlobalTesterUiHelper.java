@@ -20,7 +20,7 @@ import org.junit.Test;
  */
 public class TestGlobalTesterUiHelper {
 	@Before
-	public void prepare(){
+	public void prepare() throws CoreException{
 		GlobalTesterUiHelper.init();
 	}
 	

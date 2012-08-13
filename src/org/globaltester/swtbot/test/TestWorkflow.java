@@ -6,6 +6,7 @@ import static org.junit.Assert.assertTrue;
 import java.io.File;
 import java.io.IOException;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swtbot.swt.finder.waits.Conditions;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.globaltester.swtbot.Strings;
@@ -34,7 +35,7 @@ public class TestWorkflow {
 	private File testFile;
 	
 	@Before
-	public void prepare(){
+	public void prepare() throws CoreException{
 		GlobalTesterUiHelper.init();
 	}
 	

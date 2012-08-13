@@ -26,16 +26,19 @@ public class ExportWizardUiHelper extends WizardUiHelper{
 	}
 
 	public void selectTestSpecification(String name) {
+		goToPage(0);
 		SWTBotList specs = bot.list(0);
 		specs.select(name);
 	}
 
 	public void selectExportLayout(String name){
+		goToPage(0);
 		SWTBotList exporters = bot.list(1);
 		exporters.select(name);
 	}
 	
 	public void setExportDestination(File destination){
+		goToPage(0);
 		SWTBotText text = bot.text(1);
 		text.setText(destination.toString());
 		// swtbot cannot type ":" 
@@ -44,22 +47,26 @@ public class ExportWizardUiHelper extends WizardUiHelper{
 	}
 	
 	public void setAdditionalData(String key, String value){
+		goToPage(1);
 		Text text = bot.widget(new WidgetDataMatcher<Text>(key));
 		SWTBotText swtText = new SWTBotText(text);
 		swtText.typeText(value);
 	}
 	
 	public int getNumberOfTestSpecifications(){
+		goToPage(0);
 		SWTBotList projectList = bot.list(0);
 		return projectList.itemCount();
 	}
 	
 	public int getNumberOfExporters(){
+		goToPage(0);
 		SWTBotList exporters = bot.list(1);
 		return exporters.itemCount();
 	}
 	
 	public boolean hasExporter(String name){
+		goToPage(0);
 		SWTBotList exporters = bot.list(1);
 		for (String s : exporters.getItems()){
 			if (s.equals(name)){return true;}
@@ -68,6 +75,7 @@ public class ExportWizardUiHelper extends WizardUiHelper{
 	}
 	
 	public boolean visibilityOfCustomOptions(){
+		goToPage(0);
 		SWTBotLabel stylesheetLabel = bot.label(Strings.LABEL_STYLESHEET);
 		return stylesheetLabel.isVisible();
 	}

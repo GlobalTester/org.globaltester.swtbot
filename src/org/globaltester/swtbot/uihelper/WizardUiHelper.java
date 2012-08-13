@@ -14,8 +14,31 @@ import org.globaltester.swtbot.Strings;
  */
 public abstract class WizardUiHelper extends UiHelper{
 
+	int page = 0;
+	
 	protected WizardUiHelper(SWTBot bot) {
 		super(bot);
+	}
+	
+	/**
+	 * Use this method if the tested wizard has more than one page
+	 * to ensure that the correct page is displayed.
+	 * 
+	 * @param index
+	 */
+	public void goToPage(int index){
+		if (index < page){
+			for (int i = page - index; i > 0; i--){
+				back();
+			}
+		} else if (index > page){
+			for (int i = index - page; i > 0; i--){
+				next();
+			}
+		} else {
+			return;
+		}
+		page = index;
 	}
 	
 	/**

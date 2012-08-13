@@ -17,7 +17,7 @@ public class ImportWizardUiHelper extends WizardUiHelper{
 	}
 
 	public void setProjectName(String name){
-		
+		bot.text().setText(name);
 	}
 	
 	public String[] getProjects() {

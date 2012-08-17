@@ -1,15 +1,22 @@
 package org.globaltester.swtbot.uihelper;
 
 import java.io.File;
+import java.util.List;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.swtbot.swt.finder.SWTBot;
-import org.eclipse.swtbot.swt.finder.keyboard.Keystrokes;
+import org.eclipse.swtbot.swt.finder.finders.ControlFinder;
+import org.eclipse.swtbot.swt.finder.finders.UIThreadRunnable;
+import org.eclipse.swtbot.swt.finder.results.Result;
 import org.eclipse.swtbot.swt.finder.waits.Conditions;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotLabel;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotList;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotText;
 import org.globaltester.swtbot.Strings;
+import org.globaltester.swtbot.matcher.InvisibleControlMatcher;
 import org.globaltester.swtbot.matcher.WidgetDataMatcher;
 
 /**
@@ -39,11 +46,19 @@ public class ExportWizardUiHelper extends WizardUiHelper{
 	
 	public void setExportDestination(File destination){
 		goToPage(0);
-		SWTBotText text = bot.text(1);
+		final SWTBotText text = bot.text(1);
 		text.setText(destination.toString());
-		// swtbot cannot type ":" 
-		text.pressShortcut(Keystrokes.SPACE);
-		text.pressShortcut(Keystrokes.BS);
+		final Event event = new Event();
+		event.type = SWT.Modify;
+		event.widget = text.widget;
+		Display.getDefault().syncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				text.widget.notifyListeners(SWT.Modify, event);
+			}
+		});
+		
 	}
 	
 	public void setAdditionalData(String key, String value){
@@ -76,8 +91,24 @@ public class ExportWizardUiHelper extends WizardUiHelper{
 	
 	public boolean visibilityOfCustomOptions(){
 		goToPage(0);
-		SWTBotLabel stylesheetLabel = bot.label(Strings.LABEL_STYLESHEET);
-		return stylesheetLabel.isVisible();
+		ControlFinder finder = new ControlFinder();
+		finder.shouldFindInVisibleControls = true;
+		final List<Label> labels = finder
+				.findControls(new InvisibleControlMatcher<Label>(Label.class));
+
+		// check if invisible label exists
+		boolean result = UIThreadRunnable.syncExec(Display.getDefault(), new Result<Boolean>() {
+			public Boolean run() {
+				for (Label label : labels) {
+					if (label instanceof Label && ((Label) label).getText().equals(Strings.LABEL_STYLESHEET)){
+						return false;
+					}
+				}
+				return true;
+			}
+		});
+
+		return result;
 	}
 	
 	@Override

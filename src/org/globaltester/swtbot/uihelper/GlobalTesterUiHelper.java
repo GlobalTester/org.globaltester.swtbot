@@ -22,9 +22,16 @@ public class GlobalTesterUiHelper {
 	
 	private static final SWTWorkbenchBot bot = new SWTWorkbenchBot();
 	
+	/**
+	 * Tries to restore the default perspective and close all unneeded dialogs, shells, views etc.
+	 * Additionally the workspace is emptied.
+	 * 
+	 * @throws CoreException
+	 */
 	public static void init() throws CoreException{
 		bot.waitUntil(Conditions.shellIsActive(Strings.WORKBENCH_TITLE));
 		SwtBotHelper.resetWorkbenchState(bot);
+		SwtBotHelper.resetSpeed();
 		JUnitHelper.emptyWorkspace();
 	}
 	

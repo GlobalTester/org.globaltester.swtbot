@@ -70,6 +70,7 @@ public abstract class WizardUiHelper extends UiHelper{
 	 * Simulate a click on the "Next" button
 	 */
 	public void next(){
+		page++;
 		bot.button(Strings.WIZARD_BUTTON_NEXT).click();
 	}
 	
@@ -77,6 +78,7 @@ public abstract class WizardUiHelper extends UiHelper{
 	 * Simulate a click on the "Back" button
 	 */
 	public void back() {
+		page--;
 		bot.button(Strings.WIZARD_BUTTON_BACK).click();
 	}
 }

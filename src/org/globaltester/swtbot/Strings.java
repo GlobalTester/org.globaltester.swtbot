@@ -25,7 +25,7 @@ public interface Strings {
 	public static final String WIZARD_TITLE_CARDCONFIG = "GlobalTester CardConfiguration Wizard";
 	public static final String DIALOG_TITLE_EXPORT = "Export";
 	public static final String DIALOG_TITLE_IMPORT = "Import";
-
+	public static final String DIALOG_TITLE_IMPORT_PROGRESS = "Progress Information";
 	public static final String DIALOG_TITLE_CARDCONFIG = "Select CardConfig";
 	public static final String DIALOG_TITLE_TEST_EXECUTION = "Test execution";
 	

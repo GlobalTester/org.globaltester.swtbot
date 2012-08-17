@@ -8,6 +8,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.globaltester.junit.JUnitHelper;
 import org.globaltester.swtbot.Strings;
+import org.globaltester.swtbot.SwtBotHelper;
 import org.globaltester.swtbot.uihelper.GlobalTesterUiHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -48,20 +49,21 @@ public class TestGlobalTesterUiHelper {
 	
 	@Test
 	public void testOpenExportWizardByMenu(){
-		GlobalTesterUiHelper.openExportWizardByMenu();
+		SwtBotHelper.slowdown();
+		GlobalTesterUiHelper.openExportWizardByMenu().openTestSpecificationExportWizard();
 		
 		SWTBot bot = GlobalTesterUiHelper.getBot();
 		String shellText = bot.activeShell().getText();
-		assertTrue("Export wizard opens", shellText.equals(Strings.WIZARD_TITLE_REAL_EXPORT));
+		assertTrue("Export wizard opens", shellText.equals(Strings.WIZARD_TITLE_TESTSPECIFICATION_EXPORT));
 	}
 	
 	@Test
 	public void testOpenImportWizardByMenu(){
-		GlobalTesterUiHelper.openImportWizardByMenu();
+		GlobalTesterUiHelper.openImportWizardByMenu().openTestSpecificationImportWizard();
 
 		SWTBot bot = GlobalTesterUiHelper.getBot();
 		String shellText = bot.activeShell().getText();
-		assertTrue("Import wizard opens", shellText.equals(Strings.WIZARD_TITLE_REAL_IMPORT));
+		assertTrue("Import wizard opens", shellText.equals(Strings.WIZARD_TITLE_TESTSPECIFICATION_IMPORT));
 	}
 	
 	@Test

@@ -29,4 +29,12 @@ public abstract class UiHelper{
 	public void captureScreenshot(String fileName){
 		SWTUtils.captureScreenshot("screenshots"+File.separator+fileName, bot.activeShell().widget);
 	}
+	
+	/**
+	 * Returns the underlying SWTBot for direct manipulation of the interface.
+	 * @return
+	 */
+	public SWTBot getBot(){
+		return bot;
+	}
 }

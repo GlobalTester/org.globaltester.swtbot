@@ -50,13 +50,8 @@ public class NavigatorViewUiHelper extends ViewUiHelper{
 	}
 	
 	public ImportWizardUiHelper openImportWizardByNavigatorContextMenu() {
-		openWizardByNavigatorContextMenu(Strings.MENU_ENTRY_IMPORT, Strings.WIZARD_TITLE_IMPORT);
-		
-		SWTBot importDialogBot = bot.shell(Strings.WIZARD_TITLE_IMPORT).bot();
-		SWTBotTree importViewTree = importDialogBot.tree();
-
-		SwtBotHelper.selectInTree(importViewTree, Strings.WIZARD_CATEGORY_GLOBALTESTER, 0);
-		return new ImportWizardUiHelper(importDialogBot);
+		openWizardByNavigatorContextMenu(Strings.MENU_ENTRY_IMPORT, Strings.WIZARD_TITLE_IMPORT);	
+		return new ImportWizardUiHelper(bot.shell(Strings.WIZARD_TITLE_IMPORT).bot());
 	}
 	
 	private void openWizardByNavigatorContextMenu(String menuEntry, String wizardTitle){

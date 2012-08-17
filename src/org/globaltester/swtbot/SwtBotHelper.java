@@ -2,6 +2,10 @@ package org.globaltester.swtbot;
 
 import java.util.List;
 
+import org.eclipse.swt.SWT;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.Event;
+import org.eclipse.swt.widgets.Widget;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.utils.SWTBotPreferences;
@@ -63,5 +67,18 @@ public class SwtBotHelper {
 	 */
 	public static void resetSpeed(){
 		SWTBotPreferences.PLAYBACK_DELAY = 0;
+	}
+	
+	public static void sendEvent(final Widget widget, int swtType){
+		final Event event = new Event();
+		event.type = SWT.Modify;
+		event.widget = widget;
+		Display.getDefault().syncExec(new Runnable() {
+			
+			@Override
+			public void run() {
+				widget.notifyListeners(SWT.Modify, event);
+			}
+		});
 	}
 }

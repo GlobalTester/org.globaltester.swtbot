@@ -1,8 +1,8 @@
 package org.globaltester.swtbot.uihelper;
 
 import org.eclipse.swtbot.swt.finder.SWTBot;
-import org.eclipse.swtbot.swt.finder.waits.Conditions;
 import org.globaltester.swtbot.Strings;
+import org.globaltester.swtbot.SwtBotHelper;
 
 /**
  * Provide a simple to use frontend for the import wizard.
@@ -15,24 +15,10 @@ public class ImportWizardUiHelper extends WizardUiHelper{
 	ImportWizardUiHelper(SWTBot bot) {
 		super(bot);
 	}
-
-	public void setProjectName(String name){
-		bot.text().setText(name);
-	}
 	
-	public String[] getProjects() {
-		return bot.list().getItems();
-
+	public TestSpecificationImportWizardUiHelper openTestSpecificationImportWizard(){
+		SwtBotHelper.selectInTree(bot.tree(), Strings.WIZARD_CATEGORY_GLOBALTESTER, Strings.WIZARD_ITEM_IMPORT);
+		next();
+		return new TestSpecificationImportWizardUiHelper(bot.shell(Strings.WIZARD_TITLE_TESTSPECIFICATION_IMPORT).bot());
 	}
-	
-	public void selectProject(String name){
-		bot.list().select(name);
-	}
-
-	@Override
-	public void finishingActions() {
-		bot.waitUntil(Conditions.shellIsActive(Strings.DIALOG_TITLE_IMPORT));
-		bot.shell(Strings.DIALOG_TITLE_IMPORT).bot().button().click();
-	}
-	
 }

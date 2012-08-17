@@ -20,8 +20,8 @@ public interface Strings {
 	public static final String WIZARD_TITLE_IMPORT = "Import";
 	public static final String WIZARD_TITLE_EXPORT = "Export";
 	public static final String WIZARD_TITLE_NEW = "New";
-	public static final String WIZARD_TITLE_REAL_EXPORT = "GlobalTester TestSpecification Export Wizard";
-	public static final String WIZARD_TITLE_REAL_IMPORT = "GlobalTester TestSpecification Import Wizard";
+	public static final String WIZARD_TITLE_TESTSPECIFICATION_EXPORT = "GlobalTester TestSpecification Export Wizard";
+	public static final String WIZARD_TITLE_TESTSPECIFICATION_IMPORT = "GlobalTester TestSpecification Import Wizard";
 	public static final String WIZARD_TITLE_CARDCONFIG = "GlobalTester CardConfiguration Wizard";
 	public static final String DIALOG_TITLE_EXPORT = "Export";
 	public static final String DIALOG_TITLE_IMPORT = "Import";

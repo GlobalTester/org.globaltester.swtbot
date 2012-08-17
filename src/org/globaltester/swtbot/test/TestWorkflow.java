@@ -11,13 +11,13 @@ import org.eclipse.swtbot.swt.finder.waits.Conditions;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.globaltester.swtbot.Strings;
 import org.globaltester.swtbot.uihelper.CardConfigWizardUiHelper;
-import org.globaltester.swtbot.uihelper.ExportWizardUiHelper;
 import org.globaltester.swtbot.uihelper.GlobalTesterUiHelper;
-import org.globaltester.swtbot.uihelper.ImportWizardUiHelper;
 import org.globaltester.swtbot.uihelper.LogFileEditorUiHelper;
 import org.globaltester.swtbot.uihelper.NavigatorViewUiHelper;
 import org.globaltester.swtbot.uihelper.TestCampaignEditorUiHelper;
 import org.globaltester.swtbot.uihelper.TestCaseWizardUiHelper;
+import org.globaltester.swtbot.uihelper.TestSpecificationExportWizardUiHelper;
+import org.globaltester.swtbot.uihelper.TestSpecificationImportWizardUiHelper;
 import org.globaltester.swtbot.uihelper.TestSpecificationWizardUiHelper;
 import org.junit.After;
 import org.junit.Before;
@@ -50,7 +50,7 @@ public class TestWorkflow {
 		testCaseWizard.selectFolder(projectName);
 		testCaseWizard.finish();
 		
-		ExportWizardUiHelper exportWizard = GlobalTesterUiHelper.openExportWizardByMenu();
+		TestSpecificationExportWizardUiHelper exportWizard = GlobalTesterUiHelper.openExportWizardByMenu().openTestSpecificationExportWizard();
 		File tempFile = File.createTempFile("export", "pdf");
 		exportWizard.selectTestSpecification(projectName);
 		exportWizard.setExportDestination(tempFile);
@@ -61,7 +61,7 @@ public class TestWorkflow {
 	}
 	
 	private void importTestSpecification(){
-		ImportWizardUiHelper importWizard = GlobalTesterUiHelper.openImportWizardByMenu();
+		TestSpecificationImportWizardUiHelper importWizard = GlobalTesterUiHelper.openImportWizardByMenu().openTestSpecificationImportWizard();
 		importWizard.selectProject(sampleProject);
 		importWizard.setProjectName(sampleProject);
 		importWizard.finish();

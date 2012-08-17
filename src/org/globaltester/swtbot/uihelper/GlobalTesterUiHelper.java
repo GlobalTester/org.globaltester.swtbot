@@ -3,14 +3,13 @@ package org.globaltester.swtbot.uihelper;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
-import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.waits.Conditions;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarDropDownButton;
+import org.globaltester.junit.JUnitHelper;
 import org.globaltester.swtbot.Strings;
 import org.globaltester.swtbot.SwtBotHelper;
 import org.globaltester.swtbot.conditions.AnyShellIsActive;
-import org.globaltester.junit.*;
 
 /**
  * Provides methods for using the GlobalTester application.
@@ -63,24 +62,12 @@ public class GlobalTesterUiHelper {
 	
 	public static ExportWizardUiHelper openExportWizardByMenu(){
 		openWizardByMenu(Strings.WIZARD_TITLE_EXPORT, Strings.MENU_ENTRY_EXPORT);
-		
-		SWTBot wizardBot = bot.shell(Strings.WIZARD_TITLE_EXPORT).bot();
-		wizardBot.tree().getTreeItem(Strings.WIZARD_CATEGORY_GLOBALTESTER).expand()
-				.select(Strings.WIZARD_ITEM_EXPORT);
-		bot.button(Strings.WIZARD_BUTTON_NEXT).click();
-		bot.waitUntil(Conditions.shellIsActive(Strings.WIZARD_TITLE_REAL_EXPORT), 5000, 500);
-		return new ExportWizardUiHelper(wizardBot);
+		return new ExportWizardUiHelper(bot.shell(Strings.WIZARD_TITLE_EXPORT).bot());
 	}
 	
 	public static ImportWizardUiHelper openImportWizardByMenu(){
 		openWizardByMenu(Strings.WIZARD_TITLE_IMPORT, Strings.MENU_ENTRY_IMPORT);
-
-		SWTBot wizardBot = bot.shell(Strings.WIZARD_TITLE_IMPORT).bot();
-		wizardBot.tree().getTreeItem(Strings.WIZARD_CATEGORY_GLOBALTESTER).expand()
-				.select(Strings.WIZARD_ITEM_IMPORT);
-		bot.button(Strings.WIZARD_BUTTON_NEXT).click();
-		bot.waitUntil(Conditions.shellIsActive(Strings.WIZARD_TITLE_REAL_IMPORT), 5000, 500);
-		return new ImportWizardUiHelper(wizardBot);
+		return new ImportWizardUiHelper(bot.shell(Strings.WIZARD_TITLE_IMPORT).bot());
 	}
 	
 	private static void openWizardByMenu(String wizardTitle, String menuEntry){

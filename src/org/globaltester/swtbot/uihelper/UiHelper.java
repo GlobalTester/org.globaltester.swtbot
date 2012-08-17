@@ -1,6 +1,9 @@
 package org.globaltester.swtbot.uihelper;
 
+import java.io.File;
+
 import org.eclipse.swtbot.swt.finder.SWTBot;
+import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
 
 /**
  * A UiHelper is a class, that abstracts from direct use of SWTBot methods
@@ -16,5 +19,14 @@ public abstract class UiHelper{
 	
 	protected UiHelper(SWTBot bot){
 		this.bot = bot;
+	}
+	
+	/**
+	 * Capture a screenshot of the area used by the wrapped part of the user interface.
+	 * 
+	 * @param fileName
+	 */
+	public void captureScreenshot(String fileName){
+		SWTUtils.captureScreenshot("screenshots"+File.separator+fileName, bot.activeShell().widget);
 	}
 }

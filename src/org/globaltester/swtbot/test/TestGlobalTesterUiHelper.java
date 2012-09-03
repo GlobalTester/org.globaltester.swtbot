@@ -49,7 +49,6 @@ public class TestGlobalTesterUiHelper {
 	
 	@Test
 	public void testOpenExportWizardByMenu(){
-		SwtBotHelper.slowdown();
 		GlobalTesterUiHelper.openExportWizardByMenu().openTestSpecificationExportWizard();
 		
 		SWTBot bot = GlobalTesterUiHelper.getBot();
@@ -60,7 +59,6 @@ public class TestGlobalTesterUiHelper {
 	@Test
 	public void testOpenImportWizardByMenu(){
 		GlobalTesterUiHelper.openImportWizardByMenu().openTestSpecificationImportWizard();
-
 		SWTBot bot = GlobalTesterUiHelper.getBot();
 		String shellText = bot.activeShell().getText();
 		assertTrue("Import wizard opens", shellText.equals(Strings.WIZARD_TITLE_TESTSPECIFICATION_IMPORT));

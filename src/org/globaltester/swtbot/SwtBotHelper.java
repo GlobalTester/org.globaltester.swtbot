@@ -69,15 +69,15 @@ public class SwtBotHelper {
 		SWTBotPreferences.PLAYBACK_DELAY = 0;
 	}
 	
-	public static void sendEvent(final Widget widget, int swtType){
+	public static void sendEvent(final Widget widget, final int swtType){
 		final Event event = new Event();
-		event.type = SWT.Modify;
+		event.type = swtType;
 		event.widget = widget;
 		Display.getDefault().syncExec(new Runnable() {
 			
 			@Override
 			public void run() {
-				widget.notifyListeners(SWT.Modify, event);
+				widget.notifyListeners(swtType, event);
 			}
 		});
 	}

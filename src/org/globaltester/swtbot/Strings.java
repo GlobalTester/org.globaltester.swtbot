@@ -9,7 +9,7 @@ package org.globaltester.swtbot;
  */
 public interface Strings {
 	public static final String WORKBENCH_TITLE = "GlobalTester";
-	
+	public static final String FILE_SCREENSHOTS_SUBFOLDER = "screenshots";
 	// menu related
 	public static final String MENU_FILE = "File";
 	public static final String MENU_ENTRY_IMPORT = "Import...";

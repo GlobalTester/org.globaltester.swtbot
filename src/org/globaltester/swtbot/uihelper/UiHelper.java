@@ -1,7 +1,5 @@
 package org.globaltester.swtbot.uihelper;
 
-import java.io.File;
-
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
 
@@ -27,7 +25,7 @@ public abstract class UiHelper{
 	 * @param fileName
 	 */
 	public void captureScreenshot(String fileName){
-		SWTUtils.captureScreenshot("screenshots"+File.separator+fileName, bot.activeShell().widget);
+		SWTUtils.captureScreenshot(fileName, bot.activeShell().widget);
 	}
 	
 	/**

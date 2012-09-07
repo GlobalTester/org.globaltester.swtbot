@@ -8,7 +8,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.globaltester.junit.JUnitHelper;
 import org.globaltester.swtbot.Strings;
-import org.globaltester.swtbot.SwtBotHelper;
 import org.globaltester.swtbot.uihelper.GlobalTesterUiHelper;
 import org.junit.Before;
 import org.junit.Test;

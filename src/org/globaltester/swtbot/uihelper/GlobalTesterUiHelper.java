@@ -1,8 +1,10 @@
 package org.globaltester.swtbot.uihelper;
 
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
+import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
 import org.eclipse.swtbot.swt.finder.waits.Conditions;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarDropDownButton;
@@ -87,6 +89,19 @@ public class GlobalTesterUiHelper {
 
 	public static LogFileEditorUiHelper focusLogFileEditor() {
 		return new LogFileEditorUiHelper(bot.editorById(Strings.EDITOR_ID_LOGFILE));
+	}
+	
+	/**
+	 * Capture a screenshot of the GlobalTester workbench.
+	 * 
+	 * @param fileName
+	 */
+	public static void captureScreenshot(String fileName){
+		SWTUtils.captureScreenshot(fileName, bot.shell(Strings.WORKBENCH_TITLE).widget);
+	}
+	
+	public static void captureScreenshot(String fileName, Rectangle bounds){
+		SWTUtils.captureScreenshot(fileName, bounds);
 	}
 	
 	public static SWTWorkbenchBot getBot() {

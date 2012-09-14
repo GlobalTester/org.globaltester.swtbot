@@ -8,11 +8,11 @@ import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEditor;
  * @author mboonk
  *
  */
-public class EditorUiHelper extends UiHelper {
+public class EditorUiHelper extends WorkbenchPartUiHelper {
 	SWTBotEditor editor;
 	
 	EditorUiHelper(SWTBotEditor editor) {
-		super(editor.bot());
+		super(editor);
 		this.editor = editor;
 	}
 	

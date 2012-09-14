@@ -6,7 +6,6 @@ import java.io.IOException;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swtbot.swt.finder.SWTBot;
-import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.globaltester.junit.JUnitHelper;
 import org.globaltester.swtbot.Strings;
 import org.globaltester.swtbot.SwtBotHelper;

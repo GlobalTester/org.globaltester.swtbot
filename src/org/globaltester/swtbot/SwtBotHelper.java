@@ -80,4 +80,8 @@ public class SwtBotHelper {
 			}
 		});
 	}
+
+	public static void setUsKeyboardLayout() {
+		SWTBotPreferences.KEYBOARD_LAYOUT = "EN_US";
+	}
 }

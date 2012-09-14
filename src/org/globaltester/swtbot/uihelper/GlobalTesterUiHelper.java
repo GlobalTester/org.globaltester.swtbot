@@ -34,6 +34,7 @@ public class GlobalTesterUiHelper {
 		bot.waitUntil(Conditions.shellIsActive(Strings.WORKBENCH_TITLE));
 		SwtBotHelper.resetWorkbenchState(bot);
 		SwtBotHelper.resetSpeed();
+		SwtBotHelper.setUsKeyboardLayout();
 		JUnitHelper.emptyWorkspace();
 	}
 	
@@ -41,6 +42,12 @@ public class GlobalTesterUiHelper {
 		SWTBotView globalTesterNavigatorView = bot.viewByTitle(Strings.VIEW_NAVIGATOR);
 		globalTesterNavigatorView.setFocus();
 		return new NavigatorViewUiHelper(globalTesterNavigatorView);
+	}
+	
+	public static ScshViewUiHelper focusScshView(){
+		SWTBotView globalTesterScshView = bot.viewByTitle(Strings.VIEW_SCSH);
+		globalTesterScshView.setFocus();
+		return new ScshViewUiHelper(globalTesterScshView);
 	}
 	
 	public static void createAndStartTestCampaignByToolBar(){

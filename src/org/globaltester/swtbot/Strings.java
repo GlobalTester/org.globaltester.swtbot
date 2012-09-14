@@ -50,6 +50,8 @@ public interface Strings {
 	
 	// views
 	public static final String VIEW_NAVIGATOR = "GlobalTester Navigator";
+	public static final String VIEW_SCSH = "SmartCardShell View";
+	public static final String VIEW_SCSH_PROMPT = "scsh>";
 	
 	// toolbar related
 	public static final String TOOLBAR_TOOLTIP_CREATE_AND_EXECUTE = "Create a new TestCampaign from selection and execute it";

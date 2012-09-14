@@ -6,6 +6,7 @@ import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
 import org.eclipse.swtbot.swt.finder.waits.Conditions;
+import org.eclipse.swtbot.swt.finder.widgets.SWTBotMenu;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotShell;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotToolbarDropDownButton;
 import org.globaltester.junit.JUnitHelper;
@@ -72,8 +73,22 @@ public class GlobalTesterUiHelper {
 		return new ImportWizardUiHelper(bot.shell(Strings.WIZARD_TITLE_IMPORT).bot());
 	}
 	
+	public static AboutDialogUiHelper openAboutDialog(){
+		clickMenuEntry(Strings.MENU_HELP, Strings.MENU_ENTRY_ABOUT);
+		bot.waitUntil(Conditions.shellIsActive(Strings.DIALOG_TITLE_ABOUT), 5000, 500);
+		return new AboutDialogUiHelper(bot.shell(Strings.DIALOG_TITLE_ABOUT).bot());
+	}
+	
+	private static void clickMenuEntry(String... path){
+		SWTBotMenu menu = bot.menu(path[0]);
+		for (int i = 1; i < path.length; i++){
+			menu = menu.menu(path[i]);
+		}
+		menu.click();
+	}
+	
 	private static void openWizardByMenu(String wizardTitle, String menuEntry){
-		bot.menu(Strings.MENU_FILE).menu(menuEntry).click();
+		clickMenuEntry(Strings.MENU_FILE, menuEntry);
 		bot.waitUntil(Conditions.shellIsActive(wizardTitle), 5000, 500);
 	}
 

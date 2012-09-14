@@ -15,6 +15,8 @@ public interface Strings {
 	public static final String MENU_ENTRY_IMPORT = "Import...";
 	public static final String MENU_ENTRY_EXPORT = "Export...";
 	public static final String MENU_ENTRY_NEW = "New";
+	public static final String MENU_ENTRY_ABOUT = "About GlobalTester RCP";
+	public static final String MENU_HELP = "Help";
 	
 	// wizard and dialog related
 	public static final String WIZARD_TITLE_IMPORT = "Import";
@@ -28,6 +30,7 @@ public interface Strings {
 	public static final String DIALOG_TITLE_IMPORT_PROGRESS = "Progress Information";
 	public static final String DIALOG_TITLE_CARDCONFIG = "Select CardConfig";
 	public static final String DIALOG_TITLE_TEST_EXECUTION = "Test execution";
+	public static final String DIALOG_TITLE_ABOUT = "About GlobalTester RCP";
 	
 	public static final String WIZARD_CATEGORY_GLOBALTESTER = "GlobalTester";
 	
@@ -77,7 +80,5 @@ public interface Strings {
 
 	public static final String EDITOR_ID_LOGFILE = "org.globaltester.logging.ui.logFileEditor";
 	public static final String EDITOR_ID_TESTCAMPAIGN = "org.globaltester.testrunner.ui.testcampaigneditor";
-
-	
-	
+		
 }

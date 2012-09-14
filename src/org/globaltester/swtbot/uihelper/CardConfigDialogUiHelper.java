@@ -10,7 +10,7 @@ import org.globaltester.swtbot.Strings;
  * @author mboonk
  *
  */
-public class CardConfigDialogUiHelper extends UiHelper {
+public class CardConfigDialogUiHelper extends DialogUiHelper {
 
 	CardConfigDialogUiHelper(SWTBot bot) {
 		super(bot);

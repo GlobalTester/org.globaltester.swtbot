@@ -5,7 +5,7 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({TestGlobalTesterUiHelper.class, TestWorkflow.class})
+@SuiteClasses({TestGlobalTesterUiHelper.class})
 public class FullTestSuite {
 
 }

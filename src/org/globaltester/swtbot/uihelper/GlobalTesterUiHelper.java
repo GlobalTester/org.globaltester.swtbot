@@ -38,16 +38,19 @@ public class GlobalTesterUiHelper {
 		JUnitHelper.emptyWorkspace();
 	}
 	
+	private static SWTBotView focusView(String title){
+		SWTBotView view = bot.viewByTitle(title);
+		view.setFocus();
+		view.show();
+		return view;
+	}
+	
 	public static NavigatorViewUiHelper focusNavigatorView(){
-		SWTBotView globalTesterNavigatorView = bot.viewByTitle(Strings.VIEW_NAVIGATOR);
-		globalTesterNavigatorView.setFocus();
-		return new NavigatorViewUiHelper(globalTesterNavigatorView);
+		return new NavigatorViewUiHelper(focusView(Strings.VIEW_NAVIGATOR));
 	}
 	
 	public static ScshViewUiHelper focusScshView(){
-		SWTBotView globalTesterScshView = bot.viewByTitle(Strings.VIEW_SCSH);
-		globalTesterScshView.setFocus();
-		return new ScshViewUiHelper(globalTesterScshView);
+		return new ScshViewUiHelper(focusView(Strings.VIEW_SCSH));
 	}
 	
 	public static void createAndStartTestCampaignByToolBar(){

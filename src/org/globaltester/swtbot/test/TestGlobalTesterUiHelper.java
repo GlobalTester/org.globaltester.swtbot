@@ -1,13 +1,16 @@
 package org.globaltester.swtbot.test;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.io.File;
 import java.io.IOException;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swtbot.swt.finder.SWTBot;
 import org.globaltester.junit.JUnitHelper;
 import org.globaltester.swtbot.Strings;
+import org.globaltester.swtbot.uihelper.AboutDialogUiHelper;
 import org.globaltester.swtbot.uihelper.GlobalTesterUiHelper;
 import org.junit.Before;
 import org.junit.Test;
@@ -74,9 +77,15 @@ public class TestGlobalTesterUiHelper {
 	
 	@Test
 	public void testOpenAboutDialog(){
-		GlobalTesterUiHelper.openAboutDialog();
-		SWTBot bot = GlobalTesterUiHelper.getBot();
-		String shellText = bot.activeShell().getText();
+		AboutDialogUiHelper dialog = GlobalTesterUiHelper.openAboutDialog();
+		dialog.captureScreenshot(Strings.FILE_SCREENSHOTS_SUBFOLDER + File.separator + "AboutDialog.png");
+		String shellText = dialog.getBot().activeShell().getText();
 		assertTrue("About dialog opens", shellText.equals(Strings.DIALOG_TITLE_ABOUT));
+	}
+	
+	@Test
+	public void testApplicationWindow() {
+		GlobalTesterUiHelper.captureScreenshot(Strings.FILE_SCREENSHOTS_SUBFOLDER + File.separator + "MainWindow.png");
+		assertNotNull(GlobalTesterUiHelper.getBot().shell(Strings.WORKBENCH_TITLE));
 	}
 }

@@ -17,4 +17,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy
 Export-Package: org.globaltester.swtbot,
+ org.globaltester.swtbot.test,
  org.globaltester.swtbot.uihelper

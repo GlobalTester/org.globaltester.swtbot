@@ -31,6 +31,9 @@ public interface Strings {
 	public static final String DIALOG_TITLE_CARDCONFIG = "Select CardConfig";
 	public static final String DIALOG_TITLE_TEST_EXECUTION = "Test execution";
 	public static final String DIALOG_TITLE_ABOUT = "About GlobalTester RCP";
+	public static final String DIALOG_TITLE_DIRECTORY = "Ordner suchen";
+	public static final String DIALOG_TITLE_FILE = "FileDialog";
+	public static final String DIALOG_TITLE_REPORT_SUCCESS = "PDF report";
 	
 	public static final String WIZARD_CATEGORY_GLOBALTESTER = "GlobalTester";
 	

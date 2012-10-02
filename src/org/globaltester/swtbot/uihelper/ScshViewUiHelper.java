@@ -1,7 +1,10 @@
 package org.globaltester.swtbot.uihelper;
 
+import java.io.File;
+
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotText;
+import org.globaltester.core.ui.GtUiHelper;
 import org.globaltester.swtbot.Strings;
 import org.globaltester.swtbot.conditions.StyledTextContainsString;
 
@@ -31,5 +34,10 @@ public class ScshViewUiHelper extends ViewUiHelper {
 	public boolean consoleContainsString(String string) {
 		bot.waitUntil(new StyledTextContainsString(bot.styledText(), string));
 		return true;
+	}
+
+	public void executeScriptByToolbar(File script) {
+		GtUiHelper.setDialogResultForTesting(script.getAbsolutePath());
+		view.getToolbarButtons().get(0).click();
 	}
 }

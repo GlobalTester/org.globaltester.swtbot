@@ -5,6 +5,7 @@ import java.io.File;
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEditor;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
+import org.globaltester.core.ui.GtUiHelper;
 import org.globaltester.swtbot.Strings;
 
 /**
@@ -17,6 +18,12 @@ public class TestCampaignEditorUiHelper extends EditorUiHelper {
 
 	TestCampaignEditorUiHelper(SWTBotEditor editor) {
 		super(editor);
+	}
+
+	public void generateReport(File destinationFolder) throws InterruptedException{
+		GtUiHelper.setDialogResultForTesting(destinationFolder.getAbsolutePath());
+		bot.button(Strings.BUTTONS_GENERATE_REPORT).click();
+		bot.shell(Strings.DIALOG_TITLE_REPORT_SUCCESS).bot().button(Strings.BUTTONS_DIALOG_OK).click();
 	}
 	
 	public void setSpecificationName(String name){
@@ -72,9 +79,5 @@ public class TestCampaignEditorUiHelper extends EditorUiHelper {
 		bot.tree().contextMenu(Strings.CONTEXTMENU_ENTRY_LOGFILE).click();
 		bot.waitWhile(Conditions.shellIsActive(editor.getTitle()));
 		return new LogFileEditorUiHelper(GlobalTesterUiHelper.getBot().activeEditor());
-	}
-
-	public void generateReport(File temp) {
-		// TODO: MBK fill this stub 
 	}
 }

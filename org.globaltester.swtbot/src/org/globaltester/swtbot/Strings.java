@@ -67,7 +67,7 @@ public interface Strings {
 	public static final String BUTTONS_CARDCONFIG_OK = "OK";
 	public static final String BUTTONS_CARDCONFIG_NEW = "New";
 
-	public static final String FILENAME_TESTCAMPAIGN = "testCampaign.xml";
+	public static final String FILENAME_TESTCAMPAIGN = "testCampaign.gtcampaign";
 
 	public static final String CONTEXTMENU_ENTRY_RUNTEST = "Run Test";
 	public static final String CONTEXTMENU_ENTRY_OPEN = "Open";

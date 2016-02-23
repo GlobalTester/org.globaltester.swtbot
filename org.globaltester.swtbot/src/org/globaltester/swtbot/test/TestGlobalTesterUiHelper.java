@@ -31,7 +31,7 @@ public class TestGlobalTesterUiHelper {
 	public void testCreateAndStartTestCampaignByToolbar() throws IOException, CoreException{
 		JUnitHelper.createDefaultTestSpec();
 		JUnitHelper.createDefaultCardConfig();
-		GlobalTesterUiHelper.focusNavigatorView().expandAndSelect(JUnitHelper.testSpec, "TestCases", "Unit1", "testcase1.xml");
+		GlobalTesterUiHelper.focusNavigatorView().expandAndSelect(JUnitHelper.testSpec, "TestCases", "Unit1", "testcase1.gt");
 		GlobalTesterUiHelper.createAndStartTestCampaignByToolBar();
 		SWTBot bot = GlobalTesterUiHelper.getBot();
 		String shellText = bot.activeShell().getText();
@@ -42,7 +42,7 @@ public class TestGlobalTesterUiHelper {
 	public void testCreateAndStartTestCampaignByToolbarOtherCardConfig() throws IOException, CoreException{
 		JUnitHelper.createDefaultTestSpec();
 		JUnitHelper.createDefaultCardConfig();
-		GlobalTesterUiHelper.focusNavigatorView().expandAndSelect(JUnitHelper.testSpec, "TestCases", "Unit1", "testcase1.xml");
+		GlobalTesterUiHelper.focusNavigatorView().expandAndSelect(JUnitHelper.testSpec, "TestCases", "Unit1", "testcase1.gt");
 		GlobalTesterUiHelper.createAndStartTestCampaignByToolBarOtherCardConfig();
 		SWTBot bot = GlobalTesterUiHelper.getBot();
 		String shellText = bot.activeShell().getText();

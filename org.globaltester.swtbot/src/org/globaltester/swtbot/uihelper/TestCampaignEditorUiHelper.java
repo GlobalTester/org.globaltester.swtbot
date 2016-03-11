@@ -5,7 +5,7 @@ import java.io.File;
 import org.eclipse.swtbot.eclipse.finder.waits.Conditions;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotEditor;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
-import org.globaltester.core.ui.GtUiHelper;
+import org.globaltester.base.ui.GtUiHelper;
 import org.globaltester.swtbot.Strings;
 
 /**

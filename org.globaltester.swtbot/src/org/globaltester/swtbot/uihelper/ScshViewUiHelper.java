@@ -4,7 +4,7 @@ import java.io.File;
 
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotText;
-import org.globaltester.core.ui.GtUiHelper;
+import org.globaltester.base.ui.GtUiHelper;
 import org.globaltester.swtbot.Strings;
 import org.globaltester.swtbot.conditions.StyledTextContainsString;
 

@@ -30,7 +30,7 @@ public class TestGlobalTesterUiHelper {
 	@Test
 	public void testCreateAndStartTestCampaignByToolbar() throws IOException, CoreException{
 		JUnitHelper.createDefaultTestSpec();
-		JUnitHelper.createDefaultCardConfig();
+		JUnitHelper.createDefaultSampleConfig();
 		GlobalTesterUiHelper.focusNavigatorView().expandAndSelect(JUnitHelper.testSpec, "TestCases", "Unit1", "testcase1.gt");
 		GlobalTesterUiHelper.createAndStartTestCampaignByToolBar();
 		SWTBot bot = GlobalTesterUiHelper.getBot();
@@ -39,14 +39,14 @@ public class TestGlobalTesterUiHelper {
 	}
 	
 	@Test
-	public void testCreateAndStartTestCampaignByToolbarOtherCardConfig() throws IOException, CoreException{
+	public void testCreateAndStartTestCampaignByToolbarOtherSampleConfig() throws IOException, CoreException{
 		JUnitHelper.createDefaultTestSpec();
-		JUnitHelper.createDefaultCardConfig();
+		JUnitHelper.createDefaultSampleConfig();
 		GlobalTesterUiHelper.focusNavigatorView().expandAndSelect(JUnitHelper.testSpec, "TestCases", "Unit1", "testcase1.gt");
-		GlobalTesterUiHelper.createAndStartTestCampaignByToolBarOtherCardConfig();
+		GlobalTesterUiHelper.createAndStartTestCampaignByToolBarOtherSampleConfig();
 		SWTBot bot = GlobalTesterUiHelper.getBot();
 		String shellText = bot.activeShell().getText();
-		assertTrue("Card config dialog opens", shellText.equals(Strings.DIALOG_TITLE_CARDCONFIG));
+		assertTrue("Sample config dialog opens", shellText.equals(Strings.DIALOG_TITLE_SAMPLECONFIG));
 	}
 	
 	@Test

@@ -28,10 +28,10 @@ public class NewWizardUiHelper extends WizardUiHelper {
 		return new TestSpecificationWizardUiHelper(bot);
 	}
 
-	public CardConfigWizardUiHelper selectCardConfiguration() {
-		SwtBotHelper.selectInTree(bot.tree(), Strings.WIZARD_CATEGORY_GLOBALTESTER, Strings.WIZARD_ITEM_CARDCONFIG);
+	public SampleConfigWizardUiHelper selectSampleConfiguration() {
+		SwtBotHelper.selectInTree(bot.tree(), Strings.WIZARD_CATEGORY_GLOBALTESTER, Strings.WIZARD_ITEM_SAMPLECONFIG);
 		next();
-		return new CardConfigWizardUiHelper(bot);
+		return new SampleConfigWizardUiHelper(bot);
 	}
 	
 }

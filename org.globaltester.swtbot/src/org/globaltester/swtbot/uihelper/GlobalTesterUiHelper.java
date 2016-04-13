@@ -57,20 +57,20 @@ public class GlobalTesterUiHelper {
 //		SWTBotToolbarDropDownButton button = bot.toolbarDropDownButton(Strings.TOOLBAR_TOOLTIP_CREATE_AND_EXECUTE);
 		SWTBotToolbarDropDownButton button = bot.toolbarDropDownButton(1);
 		button.click();
-		bot.waitUntil(new AnyShellIsActive(Strings.DIALOG_TITLE_CARDCONFIG, Strings.DIALOG_TITLE_TEST_EXECUTION));
+		bot.waitUntil(new AnyShellIsActive(Strings.DIALOG_TITLE_SAMPLECONFIG, Strings.DIALOG_TITLE_TEST_EXECUTION));
 		SWTBotShell shell = bot.activeShell();
-		if (shell != null && shell.getText().equals(Strings.DIALOG_TITLE_CARDCONFIG)){
-			shell.bot().button(Strings.BUTTONS_CARDCONFIG_OK).click();
+		if (shell != null && shell.getText().equals(Strings.DIALOG_TITLE_SAMPLECONFIG)){
+			shell.bot().button(Strings.BUTTONS_SAMPLECONFIG_OK).click();
 		}
 		
 	}
-	public static CardConfigDialogUiHelper createAndStartTestCampaignByToolBarOtherCardConfig(){
+	public static SampleConfigDialogUiHelper createAndStartTestCampaignByToolBarOtherSampleConfig(){
 //		SWTBotToolbarDropDownButton button = bot.toolbarDropDownButton(Strings.TOOLBAR_TOOLTIP_CREATE_AND_EXECUTE);
 		SWTBotToolbarDropDownButton button = bot.toolbarDropDownButton(1);
 		button.click();
-		bot.waitUntil(Conditions.shellIsActive(Strings.DIALOG_TITLE_CARDCONFIG));
-		SWTBotShell dialog = bot.shell(Strings.DIALOG_TITLE_CARDCONFIG);
-		return new CardConfigDialogUiHelper(dialog.bot());
+		bot.waitUntil(Conditions.shellIsActive(Strings.DIALOG_TITLE_SAMPLECONFIG));
+		SWTBotShell dialog = bot.shell(Strings.DIALOG_TITLE_SAMPLECONFIG);
+		return new SampleConfigDialogUiHelper(dialog.bot());
 	}
 	
 	public static ExportWizardUiHelper openExportWizardByMenu(){

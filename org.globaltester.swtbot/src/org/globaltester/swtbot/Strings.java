@@ -24,11 +24,11 @@ public interface Strings {
 	public static final String WIZARD_TITLE_NEW = "New";
 	public static final String WIZARD_TITLE_TESTSPECIFICATION_EXPORT = "GlobalTester TestSpecification Export Wizard";
 	public static final String WIZARD_TITLE_TESTSPECIFICATION_IMPORT = "GlobalTester TestSpecification Import Wizard";
-	public static final String WIZARD_TITLE_CARDCONFIG = "GlobalTester CardConfiguration Wizard";
+	public static final String WIZARD_TITLE_SAMPLECONFIG = "GlobalTester SampleConfiguration Wizard";
 	public static final String DIALOG_TITLE_EXPORT = "Export";
 	public static final String DIALOG_TITLE_IMPORT = "Import";
 	public static final String DIALOG_TITLE_IMPORT_PROGRESS = "Progress Information";
-	public static final String DIALOG_TITLE_CARDCONFIG = "Select CardConfig";
+	public static final String DIALOG_TITLE_SAMPLECONFIG = "Select SampleConfig";
 	public static final String DIALOG_TITLE_TEST_EXECUTION = "Test execution";
 	public static final String DIALOG_TITLE_ABOUT = "About GlobalTester RCP";
 	public static final String DIALOG_TITLE_DIRECTORY = "Ordner suchen";
@@ -41,7 +41,7 @@ public interface Strings {
 	public static final String WIZARD_ITEM_IMPORT = "Import TestSpecification from Plugin";
 	public static final String WIZARD_ITEM_TESTCASE = "TestCase";
 	public static final String WIZARD_ITEM_TESTSPECIFICATION = "TestSpecification";
-	public static final String WIZARD_ITEM_CARDCONFIG = "CardConfiguration";
+	public static final String WIZARD_ITEM_SAMPLECONFIG = "SampleConfiguration";
 	
 	public static final String WIZARD_BUTTON_NEXT = "Next >";
 	public static final String WIZARD_BUTTON_BACK = "< Back";
@@ -60,12 +60,12 @@ public interface Strings {
 	public static final String TOOLBAR_TOOLTIP_CREATE_AND_EXECUTE = "Create a new TestCampaign from selection and execute it";
 
 	// tabs
-	public static final String TAB_ITEM_CARDCONFIG_PASSWORDS = "Passwords";
-	public static final String TAB_ITEM_CARDCONFIG_GENERAL = "General";
-	public static final String TAB_ITEM_CARDCONFIG_ICAO9303 = "ICAO9303";
+	public static final String TAB_ITEM_SAMPLECONFIG_PASSWORDS = "Passwords";
+	public static final String TAB_ITEM_SAMPLECONFIG_GENERAL = "General";
+	public static final String TAB_ITEM_SAMPLECONFIG_ICAO9303 = "ICAO9303";
 
-	public static final String BUTTONS_CARDCONFIG_OK = "OK";
-	public static final String BUTTONS_CARDCONFIG_NEW = "New";
+	public static final String BUTTONS_SAMPLECONFIG_OK = "OK";
+	public static final String BUTTONS_SAMPLECONFIG_NEW = "New";
 
 	public static final String FILENAME_TESTCAMPAIGN = "testCampaign.gtcampaign";
 

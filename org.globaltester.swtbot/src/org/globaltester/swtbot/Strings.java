@@ -83,7 +83,7 @@ public interface Strings {
 	public static final String BUTTON_EDITOR_TESTCAMPAIGN_HISTORY_NEXT = ">";
 	public static final String BUTTON_EDITOR_TESTCAMPAIGN_HISTORY_BACK = "<";
 
-	public static final String EDITOR_ID_LOGFILE = "org.globaltester.logging.ui.logFileEditor";
+	public static final String EDITOR_ID_LOGFILE = "org.globaltester.logging.logfileeditor.ui.logFileEditor";
 	public static final String EDITOR_ID_TESTCAMPAIGN = "org.globaltester.testrunner.ui.testcampaigneditor";
 	
 	public static final String SAMPLE_TESTSPEC = "GlobalTester Sample TestSpecification";

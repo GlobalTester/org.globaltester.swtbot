@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: GT Swtbot
 Bundle-SymbolicName: org.globaltester.swtbot
-Bundle-Version: 3.0.3
+Bundle-Version: 3.0.3.qualifier
 Bundle-Activator: org.globaltester.swtbot.Activator
 Bundle-Vendor: HJP Consulting GmbH
 Require-Bundle: org.eclipse.core.runtime,

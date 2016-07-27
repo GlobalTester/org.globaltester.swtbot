@@ -10,6 +10,7 @@ import org.eclipse.swtbot.swt.finder.widgets.SWTBotTree;
 import org.eclipse.swtbot.swt.finder.widgets.SWTBotTreeItem;
 import org.globaltester.swtbot.Strings;
 import org.globaltester.swtbot.SwtBotHelper;
+import org.globaltester.testrunner.GtTestCampaignProject;
 
 /**
  * Provide a simple to use frontend for the navigator view.
@@ -35,7 +36,7 @@ public class NavigatorViewUiHelper extends ViewUiHelper{
 	public TestCampaignEditorUiHelper openTestCampaign(String projectName){
 		SWTBotView globalTesterNavigatorView = GlobalTesterUiHelper.getBot().viewByTitle(projectName);
 		globalTesterNavigatorView.setFocus();
-		expandAndSelect(projectName, Strings.FILENAME_TESTCAMPAIGN);
+		expandAndSelect(projectName, GtTestCampaignProject.DEFAULT_FILE_NAME_GT_CAMPAIGN);
 		bot.tree().contextMenu(Strings.CONTEXTMENU_ENTRY_OPEN).click();
 		return new TestCampaignEditorUiHelper(GlobalTesterUiHelper.getBot().activeEditor());
 	}

@@ -67,8 +67,6 @@ public interface Strings {
 	public static final String BUTTONS_SAMPLECONFIG_OK = "OK";
 	public static final String BUTTONS_SAMPLECONFIG_NEW = "New";
 
-	public static final String FILENAME_TESTCAMPAIGN = "testCampaign.gtcampaign";
-
 	public static final String CONTEXTMENU_ENTRY_RUNTEST = "Run Test";
 	public static final String CONTEXTMENU_ENTRY_OPEN = "Open";
 	public static final String CONTEXTMENU_ENTRY_LOGFILE = "Show log file";

@@ -16,8 +16,6 @@ import org.hamcrest.Matchers;
 public class WorkbenchPartUiHelper extends UiHelper {
 	protected IWorkbenchPartReference part;
 	
-	
-	//TODO: MBK combine both constructors 
 	protected WorkbenchPartUiHelper(SWTBotEditor editor) {
 		super(editor.bot());
 		this.part = editor.getReference();

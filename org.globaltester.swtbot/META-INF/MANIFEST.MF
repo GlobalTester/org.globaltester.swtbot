@@ -4,7 +4,7 @@ Bundle-Name: GT Swtbot
 Bundle-SymbolicName: org.globaltester.swtbot
 Bundle-Version: 3.0.3.qualifier
 Bundle-Activator: org.globaltester.swtbot.Activator
-Bundle-Vendor: HJP Consulting GmbH
+Bundle-Vendor: secunet Security Networks AG
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.swtbot.eclipse.finder;bundle-version="2.0.4",
  org.junit,

@@ -2,6 +2,7 @@ package org.globaltester.swtbot.uihelper;
 
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.swt.graphics.Rectangle;
+import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swtbot.eclipse.finder.SWTWorkbenchBot;
 import org.eclipse.swtbot.eclipse.finder.widgets.SWTBotView;
 import org.eclipse.swtbot.swt.finder.utils.SWTUtils;
@@ -13,6 +14,8 @@ import org.globaltester.junit.JUnitHelper;
 import org.globaltester.swtbot.Strings;
 import org.globaltester.swtbot.SwtBotHelper;
 import org.globaltester.swtbot.conditions.AnyShellIsActive;
+import org.hamcrest.BaseMatcher;
+import org.hamcrest.Description;
 
 /**
  * Provides methods for using the GlobalTester application.
@@ -31,7 +34,24 @@ public class GlobalTesterUiHelper {
 	 * @throws CoreException
 	 */
 	public static void init() throws CoreException{
-		bot.waitUntil(Conditions.shellIsActive(Strings.WORKBENCH_TITLE));
+		bot.waitUntil(Conditions.waitForShell(new BaseMatcher<Shell>() {
+
+			@Override
+			public boolean matches(Object item) {
+				if (item instanceof Shell) {
+					return ((Shell) item).getText().contains(Strings.WORKBENCH_TITLE);
+				}
+				return false;
+			}
+
+			@Override
+			public void describeTo(Description description) {
+				// TODO Auto-generated method stub
+				
+			}
+		}));
+		
+		//shellIsActive(Strings.WORKBENCH_TITLE));
 		SwtBotHelper.resetWorkbenchState(bot);
 		SwtBotHelper.resetSpeed();
 		SwtBotHelper.setUsKeyboardLayout();

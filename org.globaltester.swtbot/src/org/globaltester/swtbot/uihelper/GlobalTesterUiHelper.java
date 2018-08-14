@@ -23,9 +23,13 @@ import org.hamcrest.Description;
  * @author mboonk
  *
  */
-public class GlobalTesterUiHelper {
+public final class GlobalTesterUiHelper {
 	
 	private static final SWTWorkbenchBot bot = new SWTWorkbenchBot();
+	
+	private GlobalTesterUiHelper() {
+		throw new IllegalStateException("Utility class, should not be instantiated");
+	}
 	
 	/**
 	 * Tries to restore the default perspective and close all unneeded dialogs, shells, views etc.
@@ -46,12 +50,11 @@ public class GlobalTesterUiHelper {
 
 			@Override
 			public void describeTo(Description description) {
-				// TODO Auto-generated method stub
+				// no description needed
 				
 			}
 		}));
 		
-		//shellIsActive(Strings.WORKBENCH_TITLE));
 		SwtBotHelper.resetWorkbenchState(bot);
 		SwtBotHelper.resetSpeed();
 		SwtBotHelper.setUsKeyboardLayout();
@@ -74,7 +77,6 @@ public class GlobalTesterUiHelper {
 	}
 	
 	public static void createAndStartTestCampaignByToolBar(){
-//		SWTBotToolbarDropDownButton button = bot.toolbarDropDownButton(Strings.TOOLBAR_TOOLTIP_CREATE_AND_EXECUTE);
 		SWTBotToolbarDropDownButton button = bot.toolbarDropDownButton(1);
 		button.click();
 		bot.waitUntil(new AnyShellIsActive(Strings.DIALOG_TITLE_SAMPLECONFIG, Strings.DIALOG_TITLE_TEST_EXECUTION));
@@ -85,7 +87,6 @@ public class GlobalTesterUiHelper {
 		
 	}
 	public static SampleConfigDialogUiHelper createAndStartTestCampaignByToolBarOtherSampleConfig(){
-//		SWTBotToolbarDropDownButton button = bot.toolbarDropDownButton(Strings.TOOLBAR_TOOLTIP_CREATE_AND_EXECUTE);
 		SWTBotToolbarDropDownButton button = bot.toolbarDropDownButton(1);
 		button.click();
 		bot.waitUntil(Conditions.shellIsActive(Strings.DIALOG_TITLE_SAMPLECONFIG));
